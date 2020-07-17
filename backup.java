@@ -15,7 +15,6 @@ public class MinhaInterface{
 
     private JMenuItem produtoVaca, produtoCavalo, produtoJegue, produtoGalinha, produtoOvelha;   
     private ActionListener ouvidoVaca, ouvidoCavalo, ouvidoJegue, ouvidoGalinha, ouvidoOvelha;
-    private ActionListener ouvidoAumentaVisita;
     private JLabel[] nome = new JLabel[2];
 
     private Vaca minhaVaca;
@@ -24,10 +23,8 @@ public class MinhaInterface{
     private Galinha minhaGalinha;
     private Ovelha minhaOvelha;
 
-    private int iD; // Nescessario para identificar qual animal de entreterimento vai ter o numero
-                    // de visitas aumentado
 
-    // Barra de status inferior
+    // Declarar objetos (vaca, cavalo, jegue...) com seus atributos para retornar
     private JLabel status;
 
 
@@ -70,15 +67,6 @@ public class MinhaInterface{
         setBarraDoMenu();
         setJanela();
     }
-    //############### iD nescessario para registrar no banco de dados
-    public int getID() {
-        return iD;
-    }
-
-    public void setID(int iD) {
-        this.iD = iD;
-    }
-    //##############
 
     public JLabel getNome(int i){
         return this.nome[i];
@@ -86,8 +74,10 @@ public class MinhaInterface{
 
     public void setNome(String nome, int i){
         this.nome[i] = new JLabel(nome);
+        this.nome[i].setSize(1, 1);
 
         this.nome[1] = new JLabel("VAI DAR TUDO CERTO");
+        this.nome[1].setSize(1, 2);
         
     }
     
@@ -98,12 +88,11 @@ public class MinhaInterface{
 
     public void setJanela() {
         this.janela = new JFrame("Fazenda");
-        this.janela.setLayout(new BorderLayout());
+        this.janela.setLayout(new GridLayout(3,3,5,5));
         this.janela.setJMenuBar(this.getBarraDoMenu());
-
-        this.janela.add(this.getStatus(), BorderLayout.SOUTH);
-        //this.janela.add(nome[0], BorderLayout.NORTH);
-        //this.janela.add(nome[1], BorderLayout.EAST);
+        this.janela.add(this.getStatus());
+        this.janela.add(nome[0]);
+        this.janela.add(nome[1]);
 
 
         this.janela.setSize(1250, 1080);
@@ -142,7 +131,7 @@ public class MinhaInterface{
 
     // Menu Produto
     public void setProduto(){
-        this.produto = new JMenu("Registra");
+        this.produto = new JMenu("Produto");
 
         produto.add(this.getProdutoVaca());
         produto.add(this.getProdutoCavalo());
@@ -168,9 +157,6 @@ public class MinhaInterface{
 
     public void setAumentaCavalo(){
         this.aumentaCavalo = new JMenuItem("Aumentar visita do Cavalo");
-        
-        setOuvidoAumentaVisita();
-        this.aumentaCavalo.addActionListener(this.getOuvidoAumentaVisita());
     }
 
     public JMenuItem getAumentaJegue(){
@@ -179,8 +165,6 @@ public class MinhaInterface{
 
     public void setAumentaJegue(){
         this.aumentaJegue = new JMenuItem("Aumentar visita do Jegue");
-        this.aumentaJegue.addActionListener(this.getOuvidoAumentaVisita());
-
     }
 
     // PARTE DOS ITENS DO MENU
@@ -275,7 +259,7 @@ public class MinhaInterface{
     }
 
     public void setOuvidoVaca() {
-        this.ouvidoVaca = new OuvidoVaca(this.minhaVaca, this.produzVaca ,this.getStatus(), this.getID());
+        this.ouvidoVaca = new OuvidoVaca(this.minhaVaca, this.produzVaca ,this.getStatus());
     }
 
     public ActionListener getOuvidoCavalo() {
@@ -283,7 +267,7 @@ public class MinhaInterface{
     }
 
     public void setOuvidoCavalo() {
-        this.ouvidoCavalo = new OuvidoCavalo(this.getMeuCavalo(), this.produzCavalo ,this.getStatus(), this.getID());
+        this.ouvidoCavalo = new OuvidoCavalo(this.getMeuCavalo(), this.produzCavalo ,this.getStatus());
     }
 
     public ActionListener getOuvidoJegue() {
@@ -291,7 +275,7 @@ public class MinhaInterface{
     }
 
     public void setOuvidoJegue() {
-        this.ouvidoJegue = new OuvidoJegue(this.meuJegue , this.produzJegue, this.getStatus(), this.getID());
+        this.ouvidoJegue = new OuvidoJegue(this.meuJegue , this.produzJegue, this.getStatus());
     }
 
     public ActionListener getOuvidoGalinha() {
@@ -299,7 +283,7 @@ public class MinhaInterface{
     }
 
     public void setOuvidoGalinha() {
-        this.ouvidoGalinha = new OuvidoGalinha(this.minhaGalinha , this.produzGalinha , this.getStatus(), this.getID());
+        this.ouvidoGalinha = new OuvidoGalinha(this.minhaGalinha , this.produzGalinha , this.getStatus());
     }
 
     public ActionListener getOuvidoOvelha() {
@@ -307,15 +291,7 @@ public class MinhaInterface{
     }
 
     public void setOuvidoOvelha() {
-        this.ouvidoOvelha = new OuvidoOvelha(this.minhaOvelha , this.produzOvelha, this.getStatus(), this.getID());
-    }
-
-    public ActionListener getOuvidoAumentaVisita(){
-        return this.ouvidoAumentaVisita;
-    }
-
-    public void setOuvidoAumentaVisita(){
-        this.ouvidoAumentaVisita = new OuvidoVisita( this.meuCavalo , this.meuJegue , this.aumentaCavalo, this.aumentaJegue, this.getStatus(), this.getID());
+        this.ouvidoOvelha = new OuvidoOvelha(this.minhaOvelha , this.produzOvelha, this.getStatus());
     }
 
     // PARTE DO PRODUTO
@@ -371,7 +347,7 @@ public class MinhaInterface{
     }
 
     public void setStatus() {
-        this.status = new JLabel("Esperando cadastro...");
+        this.status = new JLabel("Esperando cadastro...", JLabel.CENTER);
         this.status.setSize(100, 100);
     }
 
@@ -421,7 +397,7 @@ public class MinhaInterface{
         return this.produzOvelha;
     }
 
-    // PARTE DOS ANIMAIS SAO INICIALIZADOS COM VALORES IRRELEVANTES
+    // PARTE DOS ANIMAIS
     // ##########################################################################################
 
 
