@@ -28,7 +28,8 @@ public class OuvidoVisita implements ActionListener{
             this.getStatus().setText("Aumentando o numero de visitas do cavalo");
 
             this.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Cavalo", "Cavalo", 3)));
-            this.getCavalo().registraVisita();
+            //this.getCavalo().registraVisita();
+            this.getCavalo().setContaVisitas(this.getCavalo().getContaVisitas() + 1);
         }
 
         else {

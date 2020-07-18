@@ -13,7 +13,7 @@ public class MinhaInterface{
     private JMenuItem produzVaca, produzCavalo, produzJegue, produzGalinha, produzOvelha;   // Itens de cada animal
     private JMenuItem aumentaCavalo, aumentaJegue;
 
-    private JMenuItem produtoVaca, produtoCavalo, produtoJegue, produtoGalinha, produtoOvelha;   
+    private JMenuItem produtoVaca, produtoCavalo, produtoJegue, produtoGalinha, produtoOvelha;  // Itens do Registra
     private ActionListener ouvidoVaca, ouvidoCavalo, ouvidoJegue, ouvidoGalinha, ouvidoOvelha;
     private ActionListener ouvidoAumentaVisita;
     private JLabel[] nome = new JLabel[2];
@@ -36,28 +36,45 @@ public class MinhaInterface{
         setNome("ASDASGDJKASd", 0);
 
         setStatus();
-
-        setAumentaCavalo();
-        setAumentaJegue();
-        setAumentaVisitas();
-
+        
         setMinhaVaca();
         setMeuCavalo();
         setMeuJegue();
         setMinhaGalinha();
         setMinhaOvelha();
+        
+        setAumentaCavalo();
+        setAumentaJegue();
+        setAumentaVisitas();
 
-        setVaca();
-        setCavalo();
-        setJegue();
-        setGalinha();
-        setOvelha();
+
+
+
+        
+
+        //setOuvidoVaca();
+        // setOuvidoCavalo();
+        // setOuvidoJegue();
+        // setOuvidoGalinha();
+        // setOuvidoOvelha();
+
+
         
         setProduzVaca();
         setProduzCavalo();
         setProduzJegue();
         setProduzGalinha();
         setProduzOvelha();
+
+
+        setVaca();
+        setCavalo();
+        setJegue();
+        setGalinha();
+        setOvelha();
+
+        
+        
 
         setProdutoVaca();
         setProdutoCavalo();
@@ -142,7 +159,7 @@ public class MinhaInterface{
 
     // Menu Produto
     public void setProduto(){
-        this.produto = new JMenu("Registra");
+        this.produto = new JMenu("Salva");
 
         produto.add(this.getProdutoVaca());
         produto.add(this.getProdutoCavalo());
@@ -170,7 +187,7 @@ public class MinhaInterface{
         this.aumentaCavalo = new JMenuItem("Aumentar visita do Cavalo");
         
         setOuvidoAumentaVisita();
-        this.aumentaCavalo.addActionListener(this.getOuvidoAumentaVisita());
+        this.getAumentaCavalo().addActionListener(this.getOuvidoAumentaVisita());
     }
 
     public JMenuItem getAumentaJegue(){
@@ -179,6 +196,8 @@ public class MinhaInterface{
 
     public void setAumentaJegue(){
         this.aumentaJegue = new JMenuItem("Aumentar visita do Jegue");
+        setOuvidoAumentaVisita();
+
         this.aumentaJegue.addActionListener(this.getOuvidoAumentaVisita());
 
     }
@@ -193,13 +212,7 @@ public class MinhaInterface{
     public void setVaca() {
         this.Vaca = new JMenu("Vaca");
 
-        // setProduz vem sempre primeiro, pois ouvido tem ouvir um objeto ja criado
-        this.setProduzVaca();
-        this.setOuvidoVaca();
-
         this.Vaca.add(this.getProduzVaca());
-        this.Vaca.addActionListener(ouvidoVaca);
-        this.produzVaca.addActionListener(ouvidoVaca);
     }
 
     public JMenu getCavalo() {
@@ -208,15 +221,8 @@ public class MinhaInterface{
 
     public void setCavalo() {
         this.Cavalo = new JMenu("Cavalo");
-
-        // setProduz vem sempre primeiro, pois ouvido tem ouvir um objeto ja criado
-
-        this.setProduzCavalo();
-        this.setOuvidoCavalo();
         
         this.Cavalo.add(this.getProduzCavalo());
-        this.Cavalo.addActionListener(ouvidoCavalo);
-        this.produzCavalo.addActionListener(ouvidoCavalo);
     }
 
     public JMenu getJegue() {
@@ -226,13 +232,7 @@ public class MinhaInterface{
     public void setJegue() {
         this.Jegue = new JMenu("Jegue");
 
-        // setProduz vem sempre primeiro, pois ouvido tem ouvir um objeto ja criado
-        this.setProduzJegue();
-        this.setOuvidoJegue();
-
         this.Jegue.add(this.getProduzJegue());
-        this.Jegue.addActionListener(ouvidoJegue);
-        this.produzJegue.addActionListener(ouvidoJegue);
     }
 
     public JMenu getGalinha() {
@@ -241,14 +241,8 @@ public class MinhaInterface{
 
     public void setGalinha() {
         this.Galinha = new JMenu("Galinha");
-        
-        // setProduz vem sempre primeiro, pois ouvido tem ouvir um objeto ja criado
-        this.setProduzGalinha();
-        this.setOuvidoGalinha();
 
         this.Galinha.add(this.getProduzGalinha());
-        this.Galinha.addActionListener(ouvidoGalinha);
-        this.produzGalinha.addActionListener(ouvidoGalinha);
     }
 
     public JMenu getOvelha() {
@@ -258,13 +252,7 @@ public class MinhaInterface{
     public void setOvelha() {
         this.Ovelha = new JMenu("Ovelha");
 
-        // setProduz vem sempre primeiro, pois ouvido tem ouvir um objeto ja criado
-        this.setProduzOvelha();
-        this.setOuvidoOvelha();
-
         this.Ovelha.add(this.getProduzOvelha());
-        this.Ovelha.addActionListener(ouvidoOvelha);
-        this.produzOvelha.addActionListener(ouvidoOvelha);
     }
 
     // PARTE DO OUVIDO
@@ -275,7 +263,7 @@ public class MinhaInterface{
     }
 
     public void setOuvidoVaca() {
-        this.ouvidoVaca = new OuvidoVaca(this.minhaVaca, this.produzVaca ,this.getStatus(), this.getID());
+        this.ouvidoVaca = new OuvidoVaca(this.minhaVaca , this.produzVaca, this.getStatus(), this.getID());
     }
 
     public ActionListener getOuvidoCavalo() {
@@ -283,7 +271,7 @@ public class MinhaInterface{
     }
 
     public void setOuvidoCavalo() {
-        this.ouvidoCavalo = new OuvidoCavalo(this.getMeuCavalo(), this.produzCavalo ,this.getStatus(), this.getID());
+        this.ouvidoCavalo = new OuvidoCavalo(this.meuCavalo, this.produzCavalo ,this.getStatus(), this.getID());
     }
 
     public ActionListener getOuvidoJegue() {
@@ -307,7 +295,7 @@ public class MinhaInterface{
     }
 
     public void setOuvidoOvelha() {
-        this.ouvidoOvelha = new OuvidoOvelha(this.minhaOvelha , this.produzOvelha, this.getStatus(), this.getID());
+        this.ouvidoOvelha = new OuvidoOvelha(this.minhaOvelha , this.produzOvelha , this.getStatus(), this.getID());
     }
 
     public ActionListener getOuvidoAumentaVisita(){
@@ -315,15 +303,15 @@ public class MinhaInterface{
     }
 
     public void setOuvidoAumentaVisita(){
-        this.ouvidoAumentaVisita = new OuvidoVisita( this.meuCavalo , this.meuJegue , this.aumentaCavalo, this.aumentaJegue, this.getStatus(), this.getID());
+        this.ouvidoAumentaVisita = new OuvidoVisita( this.meuCavalo, this.meuJegue , this.aumentaCavalo, this.aumentaJegue, this.getStatus(), this.getID());
     }
 
-    // PARTE DO PRODUTO
+    // PARTE DO PRODUTO salva no BD
     // ##########################################################################################
 
     public void setProdutoVaca(){
         this.produtoVaca = new JMenuItem("Salva Vaca");
-        produtoVaca.addActionListener(ouvidoVaca);
+        this.produtoVaca.addActionListener(this.getOuvidoVaca());
     }
 
     public JMenuItem getProdutoVaca(){
@@ -332,7 +320,7 @@ public class MinhaInterface{
 
     public void setProdutoCavalo(){
         this.produtoCavalo = new JMenuItem("Salva Cavalo");
-        this.produtoCavalo.addActionListener(ouvidoCavalo);
+        this.produtoCavalo.addActionListener(this.getOuvidoCavalo());
     }
 
     public JMenuItem getProdutoCavalo(){
@@ -341,7 +329,7 @@ public class MinhaInterface{
     
     public void setProdutoJegue(){
         this.produtoJegue = new JMenuItem("Salva Jegue");
-        this.produtoJegue.addActionListener(ouvidoJegue);
+        this.produtoJegue.addActionListener(this.getOuvidoJegue());
     }
 
     public JMenuItem getProdutoJegue(){
@@ -350,7 +338,7 @@ public class MinhaInterface{
 
     public void setProdutoGalinha(){
         this.produtoGalinha = new JMenuItem("Salva Galinha");
-        this.produtoGalinha.addActionListener(ouvidoGalinha);
+        this.produtoGalinha.addActionListener(this.getOuvidoGalinha());
     }
 
     public JMenuItem getProdutoGalinha(){
@@ -359,7 +347,7 @@ public class MinhaInterface{
 
     public void setProdutoOvelha(){
         this.produtoOvelha = new JMenuItem("Salva Ovelha");
-        this.produtoOvelha.addActionListener(ouvidoOvelha);
+        this.produtoOvelha.addActionListener(this.getOuvidoOvelha());
     }
 
     public JMenuItem getProdutoOvelha(){
@@ -376,7 +364,7 @@ public class MinhaInterface{
     }
 
 
-    // PARTE DO PRODUZ
+    // PARTE DO PRODUZ registra no BD
     // ##########################################################################################
 
 
@@ -386,11 +374,14 @@ public class MinhaInterface{
 
     public void setProduzVaca(){
         this.produzVaca = new JMenuItem("Registra Vaca");
-
+        this.setOuvidoVaca();
+        this.produzVaca.addActionListener(this.getOuvidoVaca());
     }
 
     public void setProduzCavalo(){
         this.produzCavalo = new JMenuItem("Registra Cavalo");
+        this.setOuvidoCavalo();
+        this.produzCavalo.addActionListener(this.getOuvidoCavalo());
     }
 
     public JMenuItem getProduzCavalo(){
@@ -399,6 +390,9 @@ public class MinhaInterface{
     
     public void setProduzJegue(){
         this.produzJegue = new JMenuItem("Registra Jegue");
+        this.setOuvidoJegue();
+
+        this.produzJegue.addActionListener(this.getOuvidoJegue());
     }
 
     public JMenuItem getProduzJegue(){
@@ -407,6 +401,9 @@ public class MinhaInterface{
 
     public void setProduzGalinha(){
         this.produzGalinha = new JMenuItem("Registra Galinha");
+        this.setOuvidoGalinha();
+
+        this.produzGalinha.addActionListener(this.getOuvidoGalinha());
     }
 
     public JMenuItem getProduzGalinha(){
@@ -415,6 +412,9 @@ public class MinhaInterface{
 
     public void setProduzOvelha(){
         this.produzOvelha = new JMenuItem("Registra Ovelha");
+        this.setOuvidoOvelha();
+
+        this.produzOvelha.addActionListener(this.getOuvidoOvelha());
     }
 
     public JMenuItem getProduzOvelha(){

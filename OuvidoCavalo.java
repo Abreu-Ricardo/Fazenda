@@ -3,16 +3,16 @@ import java.awt.event.*; // TEM Q SER DESSE JEITO
 
 public class OuvidoCavalo implements ActionListener{
     
-    private double precoPasseio; // -->
-    private int contaVisitas;    // --> CRIAR UM OBJETO DO TIPO CAVALO E SETTAR NELE OS ATRIBUTOS
+    private double precoPasseio; 
+    private int contaVisitas;   
     
     private Cavalo cavalo;
     private JMenuItem cavaloProduto; // Item do Menu Cavalo
     private JLabel status;
-    private int iD;
+    private int iD; // Mandar pro BD achar
 
-    OuvidoCavalo(Cavalo Cavalo, JMenuItem cavaloProduto ,JLabel status, int iD){
-        setCavalo(Cavalo);
+    OuvidoCavalo(Cavalo cavalo, JMenuItem cavaloProduto ,JLabel status, int iD){
+        setCavalo(cavalo);
         setCavaloProduto(cavaloProduto);
         setStatus(status);
         setID(iD);
@@ -33,7 +33,7 @@ public class OuvidoCavalo implements ActionListener{
             
             // Registro do produto do cavalo
             this.getCavalo().setPrecoPasseio(Float.parseFloat((JOptionPane.showInputDialog(null, "Qual o preco passeio do cavalo?", "Cavalo", 3))));
-            this.setContaVisitas(Integer.parseInt(JOptionPane.showInputDialog(null, "Quantidade de visitas", "Cavalo", 3)));
+            this.getCavalo().setContaVisitas(Integer.parseInt(JOptionPane.showInputDialog(null, "Quantidade de visitas", "Cavalo", 3)));
             this.getCavalo().setTipoAlimentacao( JOptionPane.showInputDialog(null, "Qual alimentacao do cavalo?", "Cavalo", 3) );
             
             //System.out.println(getPrecoPasseio()+"  / "+getContaVisitas());

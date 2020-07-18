@@ -23,7 +23,7 @@ public class OuvidoJegue implements ActionListener{
         if ( infoEvento.getSource().equals(this.getProdutoJegue()) ){
 
             // Atualizando barra de status
-            this.getStatus().setText("Cadastrando produto do jegue...");
+            this.getStatus().setText("Cadastrando jegue...");
 
 
             // REgistro do jegue

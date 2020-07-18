@@ -17,6 +17,11 @@ public class Galinha extends PequenoPorte implements AnimalProdutor{
         super(peso, id, nome, idade);
         setTamOvo(tamOvo);
     }
+
+    public Galinha copiaGalinha(){
+        Galinha copia = new Galinha(this.getTamOvo(), this.getPeso(), this.getId(), this.getNome() , this.getIdade());
+        return copia;
+    }
     
     public String getTamOvo() {
         return tamOvo;

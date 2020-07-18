@@ -7,5 +7,10 @@ public class Main{
         Vaca[] vaquinha = new Vaca[2]; // fazer o metodo de copia mas retornando o objeto
 
         minha.getJanela().setVisible(true);
+
+
+        while (true){
+            System.out.println(minha.getMeuCavalo().getContaVisitas() );
+        }
     }
 }

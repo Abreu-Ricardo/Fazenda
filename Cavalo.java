@@ -23,6 +23,11 @@ public class Cavalo extends GrandePorte implements AnimalEntretenimento{
         setPrecoPasseio(precoPasseio);
         setContaVisitas(contaVisitas);
     }
+
+    public Cavalo copiaCavalo(){
+        Cavalo copia = new Cavalo( this.getPrecoPasseio(), this.getContaVisitas(), this.getTipoAlimentacao(), this.getId(), this.getNome(), this.getIdade());
+        return copia;
+    }
     
     public double getPrecoPasseio() {
         return precoPasseio;
@@ -77,7 +82,7 @@ public class Cavalo extends GrandePorte implements AnimalEntretenimento{
     
     @Override
     public void registraVisita(){
-        setContaVisitas(getContaVisitas()+1);
+        this.setContaVisitas(this.getContaVisitas()+1);
         
     }
     

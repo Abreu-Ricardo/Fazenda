@@ -2,15 +2,15 @@ import javax.swing.*;
 import java.awt.event.*; // TEM Q SER DESSE JEITO
 public class OuvidoVaca implements ActionListener{
     
-    private String produtoDerivado; // // --> CRIAR UM OBJETO DO TIPO VACA E SETTAR NELE OS ATRIBUTOS
+    private String produzDerivado; // // --> CRIAR UM OBJETO DO TIPO VACA E SETTAR NELE OS ATRIBUTOS
     private Vaca vaca;
-    private JMenuItem vacaProduto; // Item dentro do menu Vaca
+    private JMenuItem produzVaca; // Item dentro do menu Vaca
     private JLabel status;
     private int iD;
 
-    OuvidoVaca(Vaca vaca, JMenuItem vacaProduto ,JLabel status, int iD){
+    OuvidoVaca(Vaca vaca, JMenuItem produzVaca ,JLabel status, int iD){
         setVaca(vaca);
-        setVacaProduto(vacaProduto);
+        setProduzVaca(produzVaca);
         setStatus(status);
         setID(iD);
     }
@@ -18,10 +18,11 @@ public class OuvidoVaca implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent infoEvento){
 
-        if ( infoEvento.getSource().equals(this.getVacaProduto()) ){
+        if ( infoEvento.getSource().equals(this.getProduzVaca()) ){
 
             // Atualizando barra de status
             this.getStatus().setText("Cadastrando vaca...");
+
 
             this.getVaca().setId(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da vaca? ", "Vaca", 3)));
             this.getVaca().setNome(JOptionPane.showInputDialog(null, "Qual o nome da vaca? ", "Vaca", 3));
@@ -41,22 +42,18 @@ public class OuvidoVaca implements ActionListener{
             this.getVaca().registraVaca(null, null, null);
         }
 
+
         // Atualizando barra de status
         this.getStatus().setText("Esperando outro cadastro...");
         
     }
 
-    public void cadastraProduto(){
-        // Dar um jeito de cadastrar no banco de dados
-        return;
+    public String getProduzDerivado() {
+        return produzDerivado;
     }
 
-    public String getProdutoDerivado() {
-        return produtoDerivado;
-    }
-
-    public void setProdutoDerivado(String produtoDerivado) {
-        this.produtoDerivado = produtoDerivado;
+    public void setProduzDerivado(String produzDerivado) {
+        this.produzDerivado = produzDerivado;
     }
 
     public Vaca getVaca() {
@@ -75,12 +72,12 @@ public class OuvidoVaca implements ActionListener{
         this.status = status;
     }
 
-    public JMenuItem getVacaProduto() {
-        return vacaProduto;
+    public JMenuItem getProduzVaca() {
+        return produzVaca;
     }
 
-    public void setVacaProduto(JMenuItem vacaProduto) {
-        this.vacaProduto = vacaProduto;
+    public void setProduzVaca(JMenuItem produzVaca) {
+        this.produzVaca = produzVaca;
     }
 
     public int getID() {
