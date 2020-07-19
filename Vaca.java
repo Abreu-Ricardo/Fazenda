@@ -12,6 +12,7 @@ import java.sql.*;
 public class Vaca extends GrandePorte implements AnimalProdutor {
 
      private String ProdutoDerivado;
+     private int contaProdutos;
     
     
     public Vaca(String ProdutoDerivado, String tipoAlimentacao, int id, String nome, int idade) {
@@ -53,9 +54,9 @@ public class Vaca extends GrandePorte implements AnimalProdutor {
         System.out.println(valorFinal);   
     }
     
-    public void produzProduto(Produto produto){
+    public void produzProduto(){
         
-        produto.numeroDeProdutos=produto.numeroDeProdutos+1;
+        this.setContaProdutos(this.getContaProdutos() + 1);
        
         
         
@@ -93,5 +94,12 @@ public class Vaca extends GrandePorte implements AnimalProdutor {
     
     
     
-    
+    public int getContaProdutos() {
+        return contaProdutos;
+    }
+
+    public void setContaProdutos(int contaProdutos) {
+        this.contaProdutos = contaProdutos;
+    }
+
 }

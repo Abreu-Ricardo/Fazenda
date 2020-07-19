@@ -9,13 +9,13 @@ public class OuvidoCavalo implements ActionListener{
     private Cavalo cavalo;
     private JMenuItem cavaloProduto; // Item do Menu Cavalo
     private JLabel status;
-    private int iD; // Mandar pro BD achar
+    private ID identidade = new ID();
 
-    OuvidoCavalo(Cavalo cavalo, JMenuItem cavaloProduto ,JLabel status, int iD){
+    OuvidoCavalo(Cavalo cavalo, JMenuItem cavaloProduto ,JLabel status, ID identidade){
         setCavalo(cavalo);
         setCavaloProduto(cavaloProduto);
         setStatus(status);
-        setID(iD);
+        setIdentidade(identidade);
     }
     
     @Override
@@ -40,7 +40,7 @@ public class OuvidoCavalo implements ActionListener{
         }
 
         else {
-            this.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Cavalo", "Cavalo", 3)));
+            this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Cavalo", "Cavalo", 3)));
 
             JOptionPane.showMessageDialog(null, "Escrevendo no Banco de Dados...");
             this.getCavalo().registraCavalo(null, null, null);
@@ -95,12 +95,13 @@ public class OuvidoCavalo implements ActionListener{
         this.cavaloProduto = cavaloProduto;
     }
 
-    public int getID() {
-        return iD;
+    public ID getIdentidade() {
+        return identidade;
     }
 
-    public void setID(int iD){
-        this.iD = iD;
+    public void setIdentidade(ID identidade) {
+        this.identidade = identidade;
     }
+
 
 }

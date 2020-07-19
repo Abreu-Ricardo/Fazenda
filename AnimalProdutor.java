@@ -10,7 +10,7 @@
  */
 public interface AnimalProdutor {
     
-    void produzProduto(Produto produto);
+    void produzProduto();
   
     
 }

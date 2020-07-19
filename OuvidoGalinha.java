@@ -5,12 +5,12 @@ public class OuvidoGalinha implements ActionListener{
     private JMenuItem produtoGalinha; // Item do Menu Galinha(dentro do Menu Animal)
     private String tamanhoOvo; 
     private String[] tamanhos = new String[3];
-    private int iD;
+    private ID identidade = new ID();
 
     private Galinha galinha;
     private JLabel status;
 
-    OuvidoGalinha(Galinha galinha , JMenuItem produtoGalinha, JLabel status, int iD){
+    OuvidoGalinha(Galinha galinha , JMenuItem produtoGalinha, JLabel status, ID identidade){
         tamanhos[0] = "P";
         tamanhos[1] = "M";
         tamanhos[2] = "G";
@@ -18,7 +18,7 @@ public class OuvidoGalinha implements ActionListener{
         setProdutoGalinha(produtoGalinha);
         setStatus(status);
         setGalinha(galinha);
-        setID(iD);
+        setIdentidade(identidade);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class OuvidoGalinha implements ActionListener{
         }
 
         else{
-            this.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Galinha", "Galinha", 3)));
+            this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Galinha", "Galinha", 3)));
 
             JOptionPane.showMessageDialog(null, "Escrevendo no Banco de Dados...");
             this.getGalinha().registraGalinha(null, null, null);
@@ -99,12 +99,12 @@ public class OuvidoGalinha implements ActionListener{
         this.galinha = galinha;
     }
 
-    public int getID(){
-        return this.iD;
+    public ID getIdentidade() {
+        return identidade;
     }
 
-    public void setID(int iD){
-        this.iD = iD;
+    public void setIdentidade(ID identidade) {
+        this.identidade = identidade;
     }
 
 }

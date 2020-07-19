@@ -6,14 +6,14 @@ public class OuvidoOvelha implements ActionListener{
     private Ovelha ovelha;
     private JMenuItem produzOvelha;
     private JLabel status;
-    private int iD;
+    private ID identidade = new ID();
 
-    OuvidoOvelha(Ovelha ovelha , JMenuItem produzOvelha, JLabel status, int iD){
+    OuvidoOvelha(Ovelha ovelha , JMenuItem produzOvelha, JLabel status,  ID identidade){
         setProduzOvelha(produzOvelha);
         setStatus(status);
         setOvelha(ovelha);
-        setID(iD);
-    }
+        setIdentidade(identidade);   
+     }
 
     @Override
     public void actionPerformed(ActionEvent infoEvento){
@@ -33,9 +33,11 @@ public class OuvidoOvelha implements ActionListener{
         }
 
         else {
-            this.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Ovelha", "Ovelha", 3)));
+            this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Ovelha", "Ovelha", 3)));
+            this.identidade.setNome("Ovelha");
 
             JOptionPane.showMessageDialog(null, "Escrevendo no Banco de Dados...");
+
             this.getOvelha().registraOvelha(null, null, null);
 
         }
@@ -79,12 +81,12 @@ public class OuvidoOvelha implements ActionListener{
         this.ovelha = ovelha;
     }
 
-    public int getID(){
-        return this.iD;
+    public ID getIdentidade() {
+        return identidade;
     }
 
-    public void setID(int iD){
-        this.iD = iD;
+    public void setIdentidade(ID identidade) {
+        this.identidade = identidade;
     }
 
 }

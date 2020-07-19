@@ -12,6 +12,8 @@ import java.sql.*;
 public class Galinha extends PequenoPorte implements AnimalProdutor{
 
     private String tamOvo;
+    private int contaProdutos;
+
     
     public Galinha(String tamOvo, double peso, int id, String nome, int idade) {
         super(peso, id, nome, idade);
@@ -54,9 +56,9 @@ public class Galinha extends PequenoPorte implements AnimalProdutor{
     }
     
     @Override
-    public void produzProduto(Produto produto){
+    public void produzProduto(){
         
-        produto.numeroDeProdutos=produto.numeroDeProdutos+1;
+        this.setContaProdutos(this.getContaProdutos() + 1);
        
         
         
@@ -96,4 +98,19 @@ public class Galinha extends PequenoPorte implements AnimalProdutor{
 
     
     
+
+    /**
+     * @return int return the contaProdutos
+     */
+    public int getContaProdutos() {
+        return contaProdutos;
+    }
+
+    /**
+     * @param contaProdutos the contaProdutos to set
+     */
+    public void setContaProdutos(int contaProdutos) {
+        this.contaProdutos = contaProdutos;
+    }
+
 }

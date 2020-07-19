@@ -8,13 +8,13 @@ public class OuvidoJegue implements ActionListener{
     private Jegue jegue;
     private JMenuItem produtoJegue;
     private JLabel status;
-    private int iD;
+    private ID identidade = new ID();
 
-    OuvidoJegue(Jegue jegue, JMenuItem produtoJegue, JLabel status, int iD){
+    OuvidoJegue(Jegue jegue, JMenuItem produtoJegue, JLabel status, ID identidade){
         setProdutoJegue(produtoJegue);
         setStatus(status);
         setJegue(jegue);
-        setID(iD);
+        setIdentidade(identidade);
     }
     
     @Override
@@ -39,7 +39,7 @@ public class OuvidoJegue implements ActionListener{
         }
         
         else {
-            this.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Jegue", "Jegue", 3)));
+            this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Jegue", "Jegue", 3)));
 
             JOptionPane.showMessageDialog(null, "Escrevendo no Banco de Dados...");
             this.getJegue().registraJegue(null, null, null);
@@ -93,12 +93,12 @@ public class OuvidoJegue implements ActionListener{
         this.jegue = jegue;
     }
 
-    public int getID() {
-        return iD;
+    public ID getIdentidade() {
+        return identidade;
     }
 
-    public void setID(int iD) {
-        this.iD = iD;
+    public void setIdentidade(ID identidade) {
+        this.identidade = identidade;
     }
 
 }

@@ -9,15 +9,15 @@ public class OuvidoVisita implements ActionListener{
     private Cavalo cavalo;
     private Jegue jegue;
     private JLabel status;
-    private int iD;
+    private ID identidade = new ID();
 
-    OuvidoVisita( Cavalo cavalo , Jegue jegue , JMenuItem itemCavalo, JMenuItem itemJegue, JLabel status, int iD){
+    OuvidoVisita( Cavalo cavalo , Jegue jegue , JMenuItem itemCavalo, JMenuItem itemJegue, JLabel status, ID identidade){
         setCavalo(cavalo);
         setJegue(jegue);
         setItemCavalo(itemCavalo);
         setItemJegue(itemJegue);
         setStatus(status);
-        setID(iD);
+        setIdentidade(identidade);   
     }
 
     @Override
@@ -27,7 +27,7 @@ public class OuvidoVisita implements ActionListener{
         if ( infoEvento.getSource().equals(this.getItemCavalo()) ){
             this.getStatus().setText("Aumentando o numero de visitas do cavalo");
 
-            this.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Cavalo", "Cavalo", 3)));
+            this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Cavalo", "Cavalo", 3)));
             //this.getCavalo().registraVisita();
             this.getCavalo().setContaVisitas(this.getCavalo().getContaVisitas() + 1);
         }
@@ -35,7 +35,7 @@ public class OuvidoVisita implements ActionListener{
         else {
             this.getStatus().setText("Aumentando o numero de visitas do jegue");
 
-            this.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Jegue", "Jegue", 3)));
+            this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Jegue", "Jegue", 3)));
             this.getJegue().registraVisita();
         }
 
@@ -43,12 +43,12 @@ public class OuvidoVisita implements ActionListener{
         return;
     }
 
-    public int getID() {
-        return iD;
+    public ID getIdentidade() {
+        return identidade;
     }
 
-    public void setID(int iD) {
-        this.iD = iD;
+    public void setIdentidade(ID identidade) {
+        this.identidade = identidade;
     }
 
     public JMenuItem getItemCavalo() {

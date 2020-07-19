@@ -6,13 +6,13 @@ public class OuvidoVaca implements ActionListener{
     private Vaca vaca;
     private JMenuItem produzVaca; // Item dentro do menu Vaca
     private JLabel status;
-    private int iD;
+    private ID identidade = new ID();
 
-    OuvidoVaca(Vaca vaca, JMenuItem produzVaca ,JLabel status, int iD){
+    OuvidoVaca(Vaca vaca, JMenuItem produzVaca ,JLabel status, ID identidade){
         setVaca(vaca);
         setProduzVaca(produzVaca);
         setStatus(status);
-        setID(iD);
+        this.setIdentidade(identidade);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class OuvidoVaca implements ActionListener{
 
        
         else {
-            this.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Vaca", "Vaca", 3)));
+            this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Vaca", "Vaca", 3)));
             
             JOptionPane.showMessageDialog(null, "Escrevendo no banco de Dados...");
             this.getStatus().setText("Escrevendo no banco de Dados...");
@@ -80,12 +80,12 @@ public class OuvidoVaca implements ActionListener{
         this.produzVaca = produzVaca;
     }
 
-    public int getID() {
-        return iD;
+    public ID getIdentidade() {
+        return identidade;
     }
 
-    public void setID(int iD) {
-        this.iD = iD;
+    public void setIdentidade(ID identidade) {
+        this.identidade = identidade;
     }
 
 }
