@@ -19,7 +19,7 @@ public class MinhaInterface{
     private ActionListener ouvidoVaca, ouvidoCavalo, ouvidoJegue, ouvidoGalinha, ouvidoOvelha;
     private ActionListener ouvidoAumentaVisita, ouvidoImprime;
     private ActionListener ouvidoProduto;
-    private JLabel[] nome = new JLabel[2];
+    private JLabel nome;
 
     private Vaca minhaVaca;
     private Cavalo meuCavalo;
@@ -37,7 +37,7 @@ public class MinhaInterface{
 
     //  Ouvidos e os produz(s)Vaca...  Sao criados com os itens do menu
     MinhaInterface(){
-        setNome("ASDASGDJKASd", 0);
+        setNome("ANIMAL APARECERA");
         setStatus(); // sempre em primeiro
         
         identidade.setValorImpressao(-1);
@@ -92,15 +92,12 @@ public class MinhaInterface{
     }
 
 
-    public JLabel getNome(int i){
-        return this.nome[i];
+    public JLabel getNome(){
+        return this.nome;
     }
 
-    public void setNome(String nome, int i){
-        this.nome[i] = new JLabel(nome);
-
-        this.nome[1] = new JLabel("VAI DAR TUDO CERTO");
-        
+    public void setNome(String nome){
+        this.nome = new JLabel(nome);        
     }
     
 
@@ -114,8 +111,7 @@ public class MinhaInterface{
         this.janela.setJMenuBar(this.getBarraDoMenu());
 
         this.janela.add(this.getStatus(), BorderLayout.SOUTH);
-        //this.janela.add(nome[0], BorderLayout.NORTH);
-        this.janela.add(nome[1], BorderLayout.CENTER);
+        this.janela.add(this.getNome(), BorderLayout.CENTER);
 
 
         this.janela.setSize(1250, 1080);

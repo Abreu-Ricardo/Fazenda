@@ -32,11 +32,7 @@ public class OuvidoVaca implements ActionListener{
 
             this.getIdentidade().setValorImpressao(0);
             this.getIdentidade().setNome("Vaca"); // Nescessario para saber quem chamou
-            System.out.println(this.getIdentidade().getNome()+"AQUII "+ this.getIdentidade().getValorImpressao());
             
-
-
-
 
             //System.out.println(getProdutoDerivado());
         }
