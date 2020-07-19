@@ -36,11 +36,19 @@ public class OuvidoGalinha implements ActionListener{
 
                                                             // Essa linha cria caixas de opcoes com valores pre-definidos
             this.setTamanhoOvo(JOptionPane.showOptionDialog(null, "Tamanho do ovo da Galinha", "Galinha", 0, 3, null,tamanhos, null));
-            System.out.println(getTamanhoOvo());
+
+            this.identidade.setValorImpressao(0);
+            this.identidade.setNome("Galinha"); // Nescessario para saber quem chamou
+
+
+            //System.out.println(getTamanhoOvo());
         }
 
         else{
             this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Galinha", "Galinha", 3)));
+            this.identidade.setValorImpressao(1);   //Nescessario para saber o q fazer
+            this.identidade.setNome("Galinha"); //Nescessario para saber quem chamou
+
 
             JOptionPane.showMessageDialog(null, "Escrevendo no Banco de Dados...");
             this.getGalinha().registraGalinha(null, null, null);

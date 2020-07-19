@@ -35,12 +35,23 @@ public class OuvidoCavalo implements ActionListener{
             this.getCavalo().setPrecoPasseio(Float.parseFloat((JOptionPane.showInputDialog(null, "Qual o preco passeio do cavalo?", "Cavalo", 3))));
             this.getCavalo().setContaVisitas(Integer.parseInt(JOptionPane.showInputDialog(null, "Quantidade de visitas", "Cavalo", 3)));
             this.getCavalo().setTipoAlimentacao( JOptionPane.showInputDialog(null, "Qual alimentacao do cavalo?", "Cavalo", 3) );
-            
+
+            this.identidade.setValorImpressao(0);
+            this.identidade.setNome("Cavalo"); // Nescessario para saber quem chamou
+            //System.out.println(this.getIdentidade().getNome()+"AQUII "+ this.getIdentidade().getValorImpressao());
+
+
+
             //System.out.println(getPrecoPasseio()+"  / "+getContaVisitas());
         }
 
         else {
             this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Cavalo", "Cavalo", 3)));
+            this.identidade.setValorImpressao(1);   //Nescessario para o q fazer na Main
+            this.identidade.setNome("Cavalo");  //Nescessario para saber quem chamou
+            System.out.println(this.getIdentidade().getNome()+"AQUII "+ this.getIdentidade().getValorImpressao());
+
+
 
             JOptionPane.showMessageDialog(null, "Escrevendo no Banco de Dados...");
             this.getCavalo().registraCavalo(null, null, null);

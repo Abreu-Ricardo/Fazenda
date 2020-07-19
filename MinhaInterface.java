@@ -27,7 +27,6 @@ public class MinhaInterface{
     private Galinha minhaGalinha;
     private Ovelha minhaOvelha;
 
-    private Produto produto;
     
     ID identidade = new ID(); // Nescessario para identificar qual animal de entreterimento vai ter o numero
                               // de visitas aumentado
@@ -41,7 +40,7 @@ public class MinhaInterface{
         setNome("ASDASGDJKASd", 0);
         setStatus(); // sempre em primeiro
         
-        setProduto();
+        identidade.setValorImpressao(-1);
         setRegistra();
         identidade.setID(-777);
 
@@ -92,13 +91,6 @@ public class MinhaInterface{
         setJanela();
     }
 
-    public Produto getProduto(){
-        return this.produto;
-    }
-
-    public void setProduto(){
-        this.produto = new Produto(null, 0, null, 0.0);
-    }
 
     public JLabel getNome(int i){
         return this.nome[i];
@@ -381,7 +373,7 @@ public class MinhaInterface{
     }
 
     public void setOuvidoProduto(){
-        this.ouvidoProduto = new OuvidoProduto(this.produto, this.getRegistra(), this.getStatus());
+        this.ouvidoProduto = new OuvidoProduto( this.identidade, this.getRegistra(), this.getStatus());
     }
 
     // PARTE DO PRODUTO salva no BD
@@ -509,7 +501,7 @@ public class MinhaInterface{
 
     public void setMinhaVaca() {
         // String ProdutoDerivado, String tipoAlimentacao, int id, String nome, int idade
-        this.minhaVaca = new Vaca(null, null, 0, null, 2);
+        this.minhaVaca = new Vaca(null, null, 0, null, 1);
     }
 
     public Cavalo getMeuCavalo() {

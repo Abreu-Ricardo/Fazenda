@@ -29,12 +29,18 @@ public class OuvidoOvelha implements ActionListener{
             // Registrando produto da ovelha
             this.getOvelha().setPeso(Float.parseFloat(JOptionPane.showInputDialog(null, "Qual o peso da ovelha?", "Ovelha" , 3)));
             this.getOvelha().setCor(JOptionPane.showInputDialog(null, "Cor da ovelha","Ovelha", 3));
+
+            this.identidade.setValorImpressao(0);
+            this.identidade.setNome("Ovelha"); // Nescessario para saber quem chamou
+
+
             System.out.println(getCor());
         }
 
         else {
             this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Ovelha", "Ovelha", 3)));
-            this.identidade.setNome("Ovelha");
+            this.identidade.setValorImpressao(1);   //Nescessario para saber o q fazer
+            this.identidade.setNome("Ovelha");  //Nescessario para saber quem chamou
 
             JOptionPane.showMessageDialog(null, "Escrevendo no Banco de Dados...");
 

@@ -20,14 +20,14 @@ public class OuvidoImprime implements ActionListener{
         if ( infoEvento.getSource().equals(this.getAnimalImprime()) ){
             this.getStatus().setText("Imprimindo animal");
             this.identidade.setID( Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o ID do animal: ", "Animal" , 3)));
-            this.identidade.setValorImpressao(1);
+            this.identidade.setValorImpressao(2);
             // IMPRIMIR ATRIBUTOS DO ANIMAL
         }
 
         else{
             this.getStatus().setText("Imprimindo valor animal");
             this.identidade.setID( Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o ID do animal: ", "Animal" , 3)));
-            this.identidade.setValorImpressao(2);
+            this.identidade.setValorImpressao(3);
             // IMPRIMIR O VALOR DO ANIMAL
         }
 

@@ -24,18 +24,28 @@ public class OuvidoVaca implements ActionListener{
             this.getStatus().setText("Cadastrando vaca...");
 
 
-            this.getVaca().setId(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da vaca? ", "Vaca", 3)));
+            this.getVaca().setId(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da vaca?", "Vaca", 3)));
             this.getVaca().setNome(JOptionPane.showInputDialog(null, "Qual o nome da vaca? ", "Vaca", 3));
             this.getVaca().setIdade(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual a idade da vaca? ", "Vaca", 3)));
             this.getVaca().setTipoAlimentacao(JOptionPane.showInputDialog(null, "Alimentacao da Vaca: ", "Vaca", 3));
             this.getVaca().setProdutoDerivado(JOptionPane.showInputDialog(null, "Produto derivado da Vaca: ", "Vaca", 3));
+
+            this.getIdentidade().setValorImpressao(0);
+            this.getIdentidade().setNome("Vaca"); // Nescessario para saber quem chamou
+            System.out.println(this.getIdentidade().getNome()+"AQUII "+ this.getIdentidade().getValorImpressao());
+            
+
+
+
 
             //System.out.println(getProdutoDerivado());
         }
 
        
         else {
-            this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Vaca", "Vaca", 3)));
+            this.getIdentidade().setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Vaca", "Vaca", 3)));
+            this.getIdentidade().setValorImpressao(1); // Nescessario para a Main identificar o q fazer
+            this.getIdentidade().setNome("Vaca"); // Nescessario para saber quem chamou
             
             JOptionPane.showMessageDialog(null, "Escrevendo no banco de Dados...");
             this.getStatus().setText("Escrevendo no banco de Dados...");

@@ -36,10 +36,17 @@ public class OuvidoJegue implements ActionListener{
             this.getJegue().setContaVisitas(Integer.parseInt(JOptionPane.showInputDialog(null, "Quantidade de visitas", "Jegue", 3)));
             this.getJegue().setTipoAlimentacao( JOptionPane.showInputDialog(null, "Qual alimentacao do Jegue?", "Jegue", 3) );
 
+            this.identidade.setValorImpressao(0);
+            this.identidade.setNome("Jegue"); // Nescessario para saber quem chamou
+
+
         }
         
         else {
             this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Jegue", "Jegue", 3)));
+            this.identidade.setValorImpressao(1);   //Nescessario para saber o q fazer
+            this.identidade.setNome("Jegue");   //Nescessario para saber quem chamou
+
 
             JOptionPane.showMessageDialog(null, "Escrevendo no Banco de Dados...");
             this.getJegue().registraJegue(null, null, null);

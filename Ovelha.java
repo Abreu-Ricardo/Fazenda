@@ -20,7 +20,7 @@ public class Ovelha extends PequenoPorte implements AnimalProdutor{
         setCor(cor);
     }
 
-    public Ovelha copiOvelha(){
+    public Ovelha copiaOvelha(){
         Ovelha copia = new Ovelha(this.getCor(), this.getPeso(), this.getId() , this.getNome(), this.getIdade());
         return copia;
     }
