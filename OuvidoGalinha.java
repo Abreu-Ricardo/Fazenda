@@ -41,7 +41,6 @@ public class OuvidoGalinha implements ActionListener{
             this.identidade.setNome("Galinha"); // Nescessario para saber quem chamou
 
 
-            //System.out.println(getTamanhoOvo());
         }
 
         else{

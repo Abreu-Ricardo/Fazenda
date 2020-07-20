@@ -22,21 +22,25 @@ public class OuvidoVisita implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent infoEvento){
-        //this.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID do animal?")));
         
+        // Valores q vao ser usados na mais para incrementar o valor de visitas em 1
         if ( infoEvento.getSource().equals(this.getItemCavalo()) ){
             this.getStatus().setText("Aumentando o numero de visitas do cavalo");
 
-            this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Cavalo", "Cavalo", 3)));
-            //this.getCavalo().registraVisita();
-            this.getCavalo().setContaVisitas(this.getCavalo().getContaVisitas() + 1);
+            this.getIdentidade().setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Cavalo", "Cavalo", 3)));
+
+            this.getIdentidade().setNome("Cavalo");
+            this.getIdentidade().setValorImpressao(4);
         }
 
         else {
             this.getStatus().setText("Aumentando o numero de visitas do jegue");
+            
+            this.getIdentidade().setValorImpressao(4);
+            this.getIdentidade().setNome("Jegue");
+            
+            this.getIdentidade().setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Jegue", "Jegue", 3)));
 
-            this.identidade.setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Jegue", "Jegue", 3)));
-            this.getJegue().registraVisita();
         }
 
         this.getStatus().setText("Esperando outro cadastro...");

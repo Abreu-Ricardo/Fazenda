@@ -26,6 +26,12 @@ public class Jegue extends GrandePorte implements AnimalEntretenimento{
         Jegue copia = new Jegue(this.getPrecoPasseio(), this.getContaVisitas(), this.getTipoAlimentacao(), this.getId(), this.getNome(), this.getIdade());
         return copia;
     }
+
+    public String toString(){
+        return "Nome: " + getNome() + "  Id: " +  getId();
+
+
+    }
     
     public double getPrecoPasseio() {
         return precoPasseio;

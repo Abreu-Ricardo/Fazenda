@@ -20,6 +20,12 @@ public class Vaca extends GrandePorte implements AnimalProdutor {
         setProdutoDerivado(ProdutoDerivado);
     }
 
+    public String toString(){
+        return "Nome: " + getNome() + "  Id: " +  getId();
+
+
+    }
+
     public Vaca copiaVaca(){
         Vaca copia = new Vaca(this.getProdutoDerivado(), this.getTipoAlimentacao(), this.getId(), this.getNome(), this.getIdade());
         return copia;

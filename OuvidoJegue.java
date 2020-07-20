@@ -3,7 +3,7 @@ import java.awt.event.*; // TEM Q SER DESSE JEITO
 public class OuvidoJegue implements ActionListener{
 
     private double precoPasseio;
-    private int contaVisitas;       // --> CRIAR UM OBJETO DO TIPO JEGUE E SETTAR NELE OS ATRIBUTOS
+    private int contaVisitas;       
     
     private Jegue jegue;
     private JMenuItem produtoJegue;
@@ -56,9 +56,6 @@ public class OuvidoJegue implements ActionListener{
 
     }
 
-    public void cadastrarProduto(){
-        return;
-    }
 
     public double getPrecoPasseio() {
         return precoPasseio;

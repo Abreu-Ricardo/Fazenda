@@ -7,7 +7,7 @@ public class ID{
 
     ID(){
         setID(0);
-        setNome(null);
+        setNome("qualquerNome");
         setValorImpressao(0);
     }
 

@@ -23,6 +23,11 @@ public class Cavalo extends GrandePorte implements AnimalEntretenimento{
         setPrecoPasseio(precoPasseio);
         setContaVisitas(contaVisitas);
     }
+    public String toString(){
+        return "Nome: " + getNome() + "  Id: " +  getId();
+
+
+    }
 
     public Cavalo copiaCavalo(){
         Cavalo copia = new Cavalo( this.getPrecoPasseio(), this.getContaVisitas(), this.getTipoAlimentacao(), this.getId(), this.getNome(), this.getIdade());

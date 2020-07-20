@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.*; // TEM Q SER DESSE JEITO
 public class OuvidoOvelha implements ActionListener{
 
-    private String cor;     // --> CRIAR UM OBJETO DO TIPO OVELHA E SETTAR NELE OS ATRIBUTOS
+    private String cor;     
     private Ovelha ovelha;
     private JMenuItem produzOvelha;
     private JLabel status;
@@ -49,10 +49,6 @@ public class OuvidoOvelha implements ActionListener{
         }
 
         this.getStatus().setText("Esperando outro cadastro...");
-    }
-
-    public void cadastrarProduto() {
-        return;
     }
 
     public String getCor() {

@@ -38,18 +38,15 @@ public class OuvidoCavalo implements ActionListener{
 
             this.getIdentidade().setValorImpressao(0);
             this.getIdentidade().setNome("Cavalo"); // Nescessario para saber quem chamou
-            //System.out.println(this.getIdentidade().getNome()+"AQUII "+ this.getIdentidade().getValorImpressao());
 
 
 
-            //System.out.println(getPrecoPasseio()+"  / "+getContaVisitas());
         }
 
         else {
             this.getIdentidade().setID(Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o ID da Cavalo", "Cavalo", 3)));
             this.getIdentidade().setValorImpressao(1);   //Nescessario para o q fazer na Main
             this.getIdentidade().setNome("Cavalo");  //Nescessario para saber quem chamou
-            //System.out.println(this.getIdentidade().getNome()+"AQUII "+ this.getIdentidade().getValorImpressao());
 
 
 
@@ -59,11 +56,6 @@ public class OuvidoCavalo implements ActionListener{
 
         this.getStatus().setText("Esperando outro cadastro...");
     
-    }
-
-    public void cadastraProduto(){
-        // Dar um jeito de cadastrar no banco de dados
-        return;
     }
 
     public double getPrecoPasseio() {
